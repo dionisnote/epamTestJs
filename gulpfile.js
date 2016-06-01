@@ -14,7 +14,7 @@ var jsFiles = [
 gulp.task('js', function() {
 	gulp.src(jsFiles)
 		.pipe( concat('list.min.js') )
-		// .pipe( ugly() )
+		.pipe( ugly() )
 		.pipe( gulp.dest('./public/js') )
 });
 gulp.task('sass', function() {
