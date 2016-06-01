@@ -1,0 +1,219 @@
+// colors
+$dark-color: #414535 ;
+$normal-color: #618985 ;
+$lighter-color: #96BBBB ;
+$lightest-color: #F2E3BC ;
+$light-light: #eec;
+$dark-light: #C19875 ;
+
+body {
+	font-size: 15px;
+	font-family: "Roboto", "Arial" , "Times New Roman", Times, serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+// base styles
+button, input[type="text"], input[type="number"] {
+	border-radius: 0.3em;
+	background-color: $lighter-color;
+	border: 1px solid $dark-color;
+	color: $dark-color;
+	outline: none;
+	padding: 0.5em;
+}
+
+button{
+	cursor: pointer;
+	&:active {
+		background-color: $normal-color;
+		color: $lightest-color;
+	}
+}
+
+input[type="text"], input[type="number"] {
+	background-color: $lightest-color;
+}
+
+// layout
+main {
+	width: 780px;
+	margin: 0 auto;
+}
+.elementaIncognita {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba( 0,0,0,0.75 );
+	transition: 0.3s all;
+	.popUp {
+		width: 18%;
+		margin: 10% auto;
+		.caption {
+			text-align: center;
+			margin: 2em;
+			margin-top: 0;
+		}
+		button {
+			min-width: 5em;
+			&:last-child {
+				float: right;
+			}
+		}
+	}
+}
+
+// M
+
+.topControls {
+	width: 100%;
+	margin: 2em 0;
+	overflow: hidden;
+	.searchForm {
+		float: left;
+		.search {
+			width: 22em;
+		}
+		button {
+			margin-left: 1em
+		}
+	}
+	.addNewForm {
+		float: right;
+	}
+}
+
+.upDown {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border: 0.3em solid transparent;
+	position: absolute;
+	right: 10%;
+	cursor: pointer;
+	&.desc {
+		border-top: 0.6em solid $lightest-color;
+		margin-top: 0.3em;
+	}
+	&.asc {
+		border-bottom: 0.6em solid $lightest-color;
+	}
+
+}
+
+.productsListHeader {
+	background-color: $dark-light;
+	overflow: hidden;
+	& > div {
+		text-align: center;
+		color: $light-light;
+	}
+}
+
+.productsListHeader, .product {
+	display: flex;
+}
+
+.productsList {
+	background-color: $lightest-color;
+	.product:nth-child(odd) {
+		background-color: $light-light;
+	}
+	.actions {
+		button {
+			width: 7em;
+			&:nth-child(odd) {
+				margin: 0 1em;
+			}
+		}
+	} 
+}
+
+
+.nameCell, .price, .actions {
+	display: inline-flex;
+	padding: 1em;
+} 
+
+.nameCell {
+	width: 40%;
+	position: relative;
+	border-right: 1px solid $dark-color;
+	.count {
+		position: absolute;
+		right: 10%;
+	}
+	.count {
+		border-radius: 5px;
+		background-color: $dark-light;
+		color: $light-light;
+		padding: 0.3em;
+	}
+}
+.price {
+	position: relative;
+	width: 20%;
+	border-right: 1px solid $dark-color;
+}
+
+.bottomControls {
+	margin-top: 2em;
+	margin-bottom: 4em;
+	label {
+		float: left;
+		position: relative;
+		margin-right: 3em;
+		input {
+			width: 10em;
+			&.cnt {
+				width: 6em;
+			}
+			&.err {
+				border: 1px solid red;
+			}
+		}
+		&.saveBtnLbl {
+			float: right;
+			margin-right: 0;
+		}
+		div {
+			min-height: 1em;
+			margin-bottom: 1em;
+		}
+		.error {
+			width: 80%;
+			background-color: #fcc;
+			padding: 1em;
+			position: absolute;
+		}
+	}
+	#saveBtn {
+		min-width: 8em;
+	}
+}
+
+.popUp {
+	padding: 2em;
+	background-color: $lightest-color;
+	border-radius: 0.25em;
+	transition: 0.3s all;
+}
+
+
+// states
+.hide {
+	display: none;
+}
+.clear {
+	clear: both;
+}
